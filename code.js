@@ -1,11 +1,15 @@
 let numberClients = prompt("Ingrese el número de personas en esta mesa");
 let menu = document.getElementById("menu");
-let = document.getElementById("check");
+let bruto= document.getElementById("bruto");
+let check = document.getElementById("check");
+
 let order = [];
 let imageOrder = [];
 let nameOrder=[];
 let totalOrder= [];
-let TotalPago = 0;
+let propine = 0;
+let desc = 0;
+let totalPago = 0;
 
 
 menu.innerHTML="";
@@ -58,10 +62,32 @@ for(i = 0;i<numberClients;i++){
 }
 
 totalOrder.forEach(function(e){
-    TotalPago += e;
+    totalPago += e;
 });
 
-check.innerHTML = `
-    <h5 class="alert alert-success col-4">
-        Total a pagar: ${TotalPago}
+bruto.innerHTML = `
+    <h5 class="alert alert-dark col-4">
+        Valor bruto a pagar: ${totalPago}
     </h5>`;
+
+const propina = (a) =>{
+    let answer = a;
+    if (answer){
+        propine = totalPago * 0.10;
+    }
+    if(totalPago > 20000) {
+        desc = totalPago * 0.10 
+    }
+
+    totalPago += propine;
+
+    totalPago -= desc;
+
+    check.innerHTML = `
+        <h5 class="alert alert-success col-4">
+            Total a pagar: ${totalPago}
+        </h5>`;
+}
+
+
+
