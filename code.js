@@ -57,7 +57,6 @@ for(i = 0;i<numberClients;i++){
             </div>
         </div>`;
     menu.innerHTML += menuOrder;
-    console.log(`Esta es la persona ${i + 1}`);
     nameOrder[i] = `document.getElementById("orden${i + 1}")`;
 }
 
@@ -88,6 +87,3 @@ const propina = (a) =>{
             Total a pagar: ${totalPago}
         </h5>`;
 }
-
-
-
